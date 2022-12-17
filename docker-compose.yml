@@ -1,7 +1,7 @@
 version: "3"
 services:
   odoo:
-    image: odoo:12.0
+    image: odoo:16.0
     depends_on:
       - db
     restart: unless-stopped
@@ -26,7 +26,7 @@ services:
       - "traefik.http.routers.http-catchall.middlewares=redirect-to-https@docker"
       - "traefik.http.middlewares.redirect-to-https.redirectscheme.scheme=https"
   db:
-    image: postgres:10
+    image: postgres:14
     restart: unless-stopped
     networks:
       - internal
